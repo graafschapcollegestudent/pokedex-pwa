@@ -1,10 +1,9 @@
 <script setup>
-import logo from '@/images/Pokédex_logo.png'
 </script>
 <template>
   <v-app theme="dark">
   <v-app-bar color="red-darken-3">
-  <v-img :src="logo"/>
+<v-img src="./img/pokedex-logo.png"/>
 </v-app-bar>
 
     <v-main>
