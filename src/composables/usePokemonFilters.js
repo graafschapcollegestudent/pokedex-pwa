@@ -20,8 +20,13 @@ export function usePokemonFilters(sourceList) {
   }
 
   const baseList = computed(() => {
-    return selectedType.value ? typeFilteredList.value : sourceList.value
-  })
+  if (!selectedType.value) {
+    return sourceList.value
+  }
+  return sourceList.value.filter(item =>
+    typeFilteredList.value.some(t => t.name === item.name)
+  )
+})
 
   const filterSearch = computed(() => filterByName(baseList.value, searchQuery.value))
 
