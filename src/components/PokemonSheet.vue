@@ -2,8 +2,11 @@
 import { getImageUrl } from '@/helpers/pokemon.js'
 
 defineProps({
+  // geeft een true of false voor de sheet
   modelValue: Boolean,
+  //toont pokemon data
   pokemon: Object,
+  //lijst van evolutie stappen
   evolutionChain: Array
 })
 

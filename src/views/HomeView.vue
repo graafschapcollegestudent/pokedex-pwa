@@ -8,7 +8,7 @@ import '@/styles/pokemon-card.css'
 
 const pokemon = ref([])
 const currentPage = ref(1)
-const perPage = ref(20)
+const perPage = 20
 const favorites = ref([])
 
 const { sheetOpen, selectedPokemon, evolutionChain, openSheet } = usePokemonSheet()
@@ -19,8 +19,8 @@ watch(searchQuery, () => {
 })
 
 const paginatedPokemon = computed(()=>{
-    const start = (currentPage.value - 1) * perPage.value
-    const end = start + perPage.value
+    const start = (currentPage.value - 1) * perPage
+    const end = start + perPage
     return filterSearch.value.slice(start, end)
 })
 

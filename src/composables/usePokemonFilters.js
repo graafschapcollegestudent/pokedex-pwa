@@ -19,16 +19,16 @@ export function usePokemonFilters(sourceList) {
     typeFilteredList.value = data.pokemon.map(p => p.pokemon)
   }
 
-  const baseList = computed(() => {
-  if (!selectedType.value) {
-    return sourceList.value
-  }
-  return sourceList.value.filter(item =>
-    typeFilteredList.value.some(t => t.name === item.name)
-  )
-})
+  const preSearchList = computed(() => {
+    if (!selectedType.value) {
+      return sourceList.value
+    }
+    return sourceList.value.filter(item =>
+      typeFilteredList.value.some(t => t.name === item.name)
+    )
+  })
 
-  const filterSearch = computed(() => filterByName(baseList.value, searchQuery.value))
+  const filterSearch = computed(() => filterByName(preSearchList.value, searchQuery.value))
 
   return {
     searchQuery,
